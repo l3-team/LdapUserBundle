@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Module de Sécurité Lille 3{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Module de Sécurité Lille 3</h1>
+        <div class="well well-lg">Ce module ne sert que pour obtenir des informations sur la gestion de la sécurité des applications Lille 3, il peut être accessible en mode développement et production et son accès est réservé aux utilisateurs ayant le ROLE: ROLE_ADMIN</div>
+
+        <h2>Information utilisateur courrant</h2>
+        <div class="row"><label class="col-xs-12 col-sm-6 col-lg-2">CN principal :</label> <div class="col-xs-12 col-sm-6 col-lg-10">{{ user.firstCn }}</div></div>
+        {% if user.cn|length > 1 %}<div class="row"><label class="col-xs-12 col-sm-6 col-lg-2">Liste des CN :</label> <div class="col-xs-12 col-sm-6 col-lg-10">{{ user.cn|join(',') }}</div></div>{% endif %}
+        <div class="row"><label class="col-xs-12 col-sm-6 col-lg-2">GivenName :</label> <div class="col-xs-12 col-sm-6 col-lg-10">{{ user.givenName }}</div></div>
+        <div class="row"><label class="col-xs-12 col-sm-6 col-lg-2">SN :</label> <div class="col-xs-12 col-sm-6 col-lg-10">{{ user.sn|join(',') }}</div></div>
+        <div class="row"><label class="col-xs-12 col-sm-6 col-lg-2">Mail :</label> <div class="col-xs-12 col-sm-6 col-lg-10">{{ user.mail }}</div></div>
+
+        <h2>Information rôle de l'utilisateur courrant</h2>
+        <ul class="list-group">
+            {% for role in user.getRoles() %}
+                <li class="list-group-item">{{ role }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Information configuration de Bundle</h2>
+        <table class="table table-responsive table-bordered table-stripped">
+            <thead>
+                <tr>
+                    <th>ROLE</th>
+                    <th>Groupe LDAP</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for role in roles %}
+                    <tr>
+                        <td>{{ role.role }}</td>
+                        <td>{{ role.cn }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

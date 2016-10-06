@@ -1,0 +1,7 @@
+parameters:
+    ldap_user_provider.class: L3\Bundle\LdapUserBundle\Services\LdapUserProvider
+
+services:
+    ldap_user_provider:
+        class: "%ldap_user_provider.class%"
+        arguments: [@ldap_object.manager, %ldap_user.roles%]
