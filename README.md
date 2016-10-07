@@ -1,5 +1,6 @@
 User provider from LDAP
 
+
 Allow use LDAP like user provider and security in application written in Symfony2
 
 Installation of the Bundle.
