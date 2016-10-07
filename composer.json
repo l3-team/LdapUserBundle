@@ -3,6 +3,7 @@
     "type": "symfony-bundle",
     "description": "Identity Provider from LDAP",
     "homepage": "https://github.com/mhetru/LdapUserBundle",
+    "license": "(c) Copyright Universite Lille3 - Charles de Gaulle",
     "authors": [
         {
             "name": "Pierre Pélisset",
