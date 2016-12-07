@@ -55,16 +55,16 @@ class LdapUser extends Entity implements UserInterface {
     private $roles = array();
 
     public function updateRoles(array $rolesConfig = array()) {
+	// Initialisation des roles
+        $this->roles = array();
+
         /*
-         * Si aucune configuration est défini, on défini les role USER
+         * Si aucune configuration est défini (au moins le ROLE_ANON est positionné), alors on définit le ROLE_USER
          */
-        if(count($rolesConfig) < 1) {
-            $this->roles = array('ROLE_USER');
+        if(count($rolesConfig) == 1) {
+            $this->roles[] = 'ROLE_USER';
             return;
         }
-
-        // Initialisation des roles
-        $this->roles = array();
 
         // Récupération des groupes de l'utilisateur
         $groups = $this->getMemberOf();
