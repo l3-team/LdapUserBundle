@@ -62,7 +62,9 @@ class LdapUser extends Entity implements UserInterface {
          * Si aucune configuration est défini (au moins le ROLE_ANON est positionné), alors on définit le ROLE_USER
          */
         if(count($rolesConfig) == 1) {
-            $this->roles[] = 'ROLE_USER';
+            if ($this->uid != '__NO_USER__') {
+                $this->roles[] = 'ROLE_USER';
+            }
             return;
         }
 
