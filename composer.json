@@ -16,10 +16,10 @@
     ],
     "require": {
         "php": ">=5.4",
-        "symfony/symfony": "~2,>=2.8",
-        "symfony/http-foundation": "~2.1",
-        "symfony/security": "~2.1",
-        "symfony/routing": "~2.1",
+        "symfony/symfony": "~3,<=3.2",
+        "symfony/http-foundation": "~3.1",
+        "symfony/security": "~3.1",
+        "symfony/routing": "~3.1",
         "openldapobject/ldapobjectbundle": "1.1.1"
     },
     "autoload": {
