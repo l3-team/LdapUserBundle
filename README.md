@@ -21,7 +21,7 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             // ...
-
+            new OpenLdapObject\Bundle\LdapObjectBundle\OpenLdapObjectLdapObjectBundle(),
             new L3\Bundle\LdapUserBundle\L3LdapUserBundle(),
         );
 
@@ -37,7 +37,7 @@ Configuration of the bundle
 In the configuration file (parameters.yml, config.yml, config_prod.yml...), configure the ldap and the role of your users (with the cn code of the group LDAP) :
 ```
 # Ldap
-toshy62_ldap_object:
+open_ldap_object_ldap_object:
     host:     "%ldap_hostname%"
     dn:       "%ldap_dn%"
     password: "%ldap_password%"
