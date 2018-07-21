@@ -2,7 +2,7 @@
     "name": "l3/ldap-user-bundle",
     "type": "symfony-bundle",
     "description": "Identity Provider from LDAP",
-    "homepage": "https://github.com/mhetru/LdapUserBundle",
+    "homepage": "https://github.com/l3-team/LdapUserBundle",
     "authors": [
         {
             "name": "Pierre Pélisset",
@@ -10,7 +10,7 @@
         },
 	{
             "name": "Mathieu Hétru",
-            "email": "mathieu.hetru@univ-lille3.fr"
+            "email": "mathieu.hetru@univ-lille.fr"
         }
     ],
     "require": {
