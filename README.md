@@ -21,7 +21,7 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             // ...
-
+            new OpenLdapObject\Bundle\LdapObjectBundle\OpenLdapObjectLdapObjectBundle(),
             new L3\Bundle\LdapUserBundle\L3LdapUserBundle(),
         );
 
