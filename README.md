@@ -5,9 +5,6 @@ Symfony 2/3/4 User provider from LDAP
 
 Allow use LDAP like user provider and security in application written in Symfony2/3/4
 
-This bundle is also able for LDAP Entities through Doctrine ORM.
-You can make your own entities with Doctrine, just simply take example on the LdapUser.php file in this bundle.
-
 Installation of the Bundle.
 ---
 Simple add this line in your require in your composer.json :
