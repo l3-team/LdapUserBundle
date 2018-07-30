@@ -1,7 +1,7 @@
 {
     "name": "l3/ldap-user-bundle",
     "type": "symfony-bundle",
-    "description": "Identity Provider from LDAP",
+    "description": "User Provider from LDAP (branch ou=people)",
     "homepage": "https://github.com/l3-team/LdapUserBundle",
     "license": "LGPL-3.0-or-later",
     "authors": [
