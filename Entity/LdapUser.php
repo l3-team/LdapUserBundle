@@ -49,6 +49,16 @@ class LdapUser extends Entity implements UserInterface {
     protected $eduPersonPrimaryAffiliation;
 
     /**
+     * @OLO\Column(type="string")
+     */
+    protected $displayName;
+
+    /**
+     * @OLO\Column(type="array")
+     */
+    protected $eduPersonAffiliation;
+
+    /**
      * Liste des roles généré depuis la configuration de l'authentification
      * @var array
      */
@@ -232,5 +242,27 @@ class LdapUser extends Entity implements UserInterface {
         return $this;
     }
 
+    public function getDisplayName() {
+        return $this->displayName;
+    }
+
+    public function setDisplayName($value) {
+        $this->displayName = $value;
+        return $this;
+    }
+
+    public function getEduPersonAffiliation() {
+        return $this->eduPersonAffiliation;
+    }
+
+    public function addEduPersonAffiliation($value) {
+        $this->eduPersonAffiliation->add($value);
+        return $this;
+    }
+
+    public function removeEduPersonAffiliation($value) {
+        $this->eduPersonAffiliation->removeElement($value);
+        return $this;
+    }
 }
 ?>
