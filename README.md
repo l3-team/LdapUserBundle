@@ -99,9 +99,9 @@ security:
 ```
 
 For Symfony 4 :
-in the configuration file .env.dist and .env, add this :
+in the configuration file .env.local and .env, add this :
 ```
-# .env.dist 
+# .env.local 
 # .env
 ...
 ###> l3/ldap-user-bundle ###
@@ -112,7 +112,7 @@ LDAP_PASSWORD=password
 ###< l3/ldap-user-bundle ###
 ...
 ```
-and configure the values in the file .env
+and configure the values in the file .env.local
 
 next add this lines in the config/services.yaml file (under parameters) :
 ```
