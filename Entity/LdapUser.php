@@ -58,6 +58,10 @@ class LdapUser extends Entity implements UserInterface {
      */
     protected $eduPersonAffiliation;
 
+    /**
+     * @OLO\Column(type="string")
+     */
+    protected $supannEmpCorps;
 
     /**
      * Liste des roles généré depuis la configuration de l'authentification
@@ -264,6 +268,15 @@ class LdapUser extends Entity implements UserInterface {
 
     public function removeEduPersonAffiliation($value) {
         $this->eduPersonAffiliation->removeElement($value);
+        return $this;
+    }
+
+    public function getSupannEmpCorps() {
+        return $this->supannEmpCorps;
+    }
+
+    public function setSupannEmpCorps($value) {
+        $this->supannEmpCorps = $value;
         return $this;
     }
 }
