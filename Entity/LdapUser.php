@@ -150,7 +150,7 @@ class LdapUser extends Entity implements UserInterface {
     }
 
     public function equals(UserInterface $user) {
-        if(!$user instanceof People) {
+        if(!$user instanceof LdapUser) {
             return false;
         }
 

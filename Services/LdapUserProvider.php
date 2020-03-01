@@ -53,6 +53,6 @@ class LdapUserProvider implements UserProviderInterface {
     }
 
     public function supportsClass($class) {
-        return $class === 'L3\Bundle\UserLdapBundle\Entity\LdapUser';
+        return LdapUser::class === $class;
     }
 } 
