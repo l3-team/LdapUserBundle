@@ -1,9 +1,9 @@
-Symfony 2/3/4 User provider from LDAP
+Symfony 2/3/4/5 User provider from LDAP
 
 (author : Universite Lille)
 
 
-Allow use LDAP like user provider and security in application written in Symfony2/3/4
+Allow use LDAP like user provider and security in application written in Symfony2/3/4/5
 
 Installation of the Bundle.
 ---
@@ -37,7 +37,7 @@ class AppKernel extends Kernel
 }
 ```
 
-For Symfony 4 :
+For Symfony 4 and 5 :
 Verify if the lines are present in config/bundles.php file (if not present, just add the lines) :
 ```
 # config/bundles.php
@@ -98,10 +98,10 @@ security:
                 id: ldap_user_provider
 ```
 
-For Symfony 4 :
-in the configuration file .env.dist and .env, add this :
+For Symfony 4 and 5 :
+in the configuration file .env.local and .env, add this :
 ```
-# .env.dist 
+# .env.local 
 # .env
 ...
 ###> l3/ldap-user-bundle ###
@@ -112,7 +112,7 @@ LDAP_PASSWORD=password
 ###< l3/ldap-user-bundle ###
 ...
 ```
-and configure the values in the file .env
+and configure the values in the file .env.local
 
 next add this lines in the config/services.yaml file (under parameters) :
 ```
