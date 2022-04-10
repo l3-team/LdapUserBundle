@@ -36,7 +36,7 @@ class LdapUserProvider implements UserProviderInterface {
 			$user->addSn('Anonyme');
 			$user->addMemberOf('cn=anon,dc=univ-lille3,dc=fr');
 		} elseif(!$user) {
-            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $username));
+            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $identifier));
         }
 
         $user->updateRoles(array_merge($this->rolesConfig, array('anon' => 'ROLE_ANON')));
