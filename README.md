@@ -1,9 +1,9 @@
-Symfony 2/3/4/5 User provider from LDAP
+Symfony 2/3/4/5/6 User provider from LDAP
 
 (author : Universite Lille)
 
 
-Allow use LDAP like user provider and security in application written in Symfony2/3/4/5
+Allow use LDAP like user provider and security in application written in Symfony2/3/4/5/6
 
 Installation of the Bundle.
 ---
@@ -37,7 +37,7 @@ class AppKernel extends Kernel
 }
 ```
 
-For Symfony 4 and 5 :
+For Symfony 4 and 5 and 6 :
 Verify if the lines are present in config/bundles.php file (if not present, just add the lines) :
 ```
 # config/bundles.php
@@ -98,7 +98,7 @@ security:
                 id: ldap_user_provider
 ```
 
-For Symfony 4 and 5 :
+For Symfony 4 and 5 and 6 :
 in the configuration file .env.local and .env, add this :
 ```
 # .env.local 
@@ -161,6 +161,17 @@ security:
                 id: ldap_user_provider
 ```
 
+For Symfony 6 :
+```
+# config/packages/security.yaml
+security:
+    providers:
+            ldap_user_provider:
+                id: ldap_user_provider
+```
+
+
+and specify ***ldap_user_provider*** for the keys ***provider*** for your firewalls in security.yaml file
 
 Twig page for control if the user is present in the ldap group of the ROLE_USER
 ---

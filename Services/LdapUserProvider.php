@@ -26,10 +26,10 @@ class LdapUserProvider implements UserProviderInterface {
         $this->rolesConfig = $rolesConfig;
     }
 
-    public function loadUserByUsername($username) {
-        $user = $this->em->getRepository('L3\Bundle\LdapUserBundle\Entity\LdapUser')->find($username);
+    public function loadUserByIdentifier(string $identifier): UserInterface {
+        $user = $this->em->getRepository('L3\Bundle\LdapUserBundle\Entity\LdapUser')->find($identifier);
 
-		if(!$user && $username === '__NO_USER__') {
+		if(!$user && $identifier === '__NO_USER__') {
 			$user = new LdapUser();
 			$user->setUid('__NO_USER__');
 			$user->addCn('Anonyme');
@@ -49,7 +49,7 @@ class LdapUserProvider implements UserProviderInterface {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }
 
-        return $this->loadUserByUsername($user->getUid());
+        return $this->loadUserByIdentifier($user->getUid());
     }
 
     public function supportsClass($class) {

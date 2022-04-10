@@ -103,7 +103,7 @@ class LdapUser extends Entity implements UserInterface {
      *
      * @return Role[] The user roles
      */
-    public function getRoles() {
+    public function getRoles(): array {
         return $this->roles;
     }
 
@@ -135,7 +135,7 @@ class LdapUser extends Entity implements UserInterface {
      *
      * @return string The username
      */
-    public function getUsername() {
+    public function getUserIdentifier(): string {
         return $this->getFirstCn();
     }
 
