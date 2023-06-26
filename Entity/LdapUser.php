@@ -59,7 +59,7 @@ class LdapUser extends Entity implements UserInterface {
     protected $eduPersonAffiliation;
 
     /**
-     * @OLO\Column(type="string")
+     * @OLO\Column(type="array")
      */
     protected $supannEmpCorps;
 
@@ -274,8 +274,13 @@ class LdapUser extends Entity implements UserInterface {
         return $this->supannEmpCorps;
     }
 
-    public function setSupannEmpCorps($value) {
-        $this->supannEmpCorps = $value;
+    public function addSupannEmpCorps($value) {
+        $this->supannEmpCorps->add($value);
+        return $this;
+    }
+
+    public function removeSupannEmpCorps($value) {
+        $this->supannEmpCorps->removeElement($value);
         return $this;
     }
 }
