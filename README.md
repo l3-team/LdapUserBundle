@@ -7,9 +7,9 @@ Allow use LDAP like user provider and security in application written in Symfony
 
 Installation of the Bundle.
 ---
-Simple add this line in your require in your composer.json :
+Install the Bundle with this command :
 ```
-"l3/ldap-user-bundle": "~1.0"
+composer require l3/ldap-user-bundle:~1.0
 ```
 Launch the command **composer update** to install the package
 
