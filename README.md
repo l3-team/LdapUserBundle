@@ -1,4 +1,4 @@
-Symfony 2/3/4/5/6 User provider from LDAP
+Symfony 2/3/4/5/6/7 User provider from LDAP
 
 (author : Universite Lille)
 
@@ -37,7 +37,7 @@ class AppKernel extends Kernel
 }
 ```
 
-For Symfony 4 and 5 and 6 :
+For Symfony 4 and 5 and 6 and 7 :
 Verify if the lines are present in config/bundles.php file (if not present, just add the lines) :
 ```
 # config/bundles.php
@@ -98,7 +98,7 @@ security:
                 id: ldap_user_provider
 ```
 
-For Symfony 4 and 5 and 6 :
+For Symfony 4 and 5 and 6 and 7 :
 in the configuration file .env.local and .env, add this :
 ```
 # .env.local 
@@ -367,6 +367,33 @@ class DefaultController extends Controller {
 }
 ```
 
+For Symfony 7  :
+```
+# src/YourApplicationBundle/Controller/DefaultController.php
+<?php
+namespace YourApplicationBundle\Controller;
+...
+use YourApplication\Entity\People;
+...
+class DefaultController extends Controller {
+    /**
+     * @Route("/", name="homepage")
+     */
+    #[Route('/', name='homepage')]
+    public function indexAction(Request $request)
+    {
+        ...
+        // type of the people (student ? employee ? ..etc)
+        $profil = $this->get('ldap_object.manager')->getRepository('YourApplicationBundle\Entity\People')->find($this->getUser()->getUid());
+        if ($profil != null){
+            $profil = $profil->getEduPersonPrimaryAffiliation();
+        }
+        ...
+    }
+}
+```
+
+
 for write the LDAP, call your Entity like this :
 ```
 # src/YourApplicationBundle/Controller/DefaultController.php
@@ -389,6 +416,31 @@ class DefaultController extends Controller {
         $p->addSn('Hetru');
         $em = $this->get('ldap_object.manager');
         $em->persist($p);
+        $em->flush();
+        ...
+    }
+}
+```
+
+For symfony 7 :
+```
+# src/YourApplicationBundle/Controller/DefaultController.php
+<?php
+namespace YourApplicationBundle\Controller;
+...
+use YourApplication\Entity\People;
+...
+class DefaultController extends Controller {
+    #[Route('/', name='homepage')]
+    public function indexAction(Request $request)
+    {
+        ...
+        $a = new People();
+        $a->setUid('1940');
+        $a->setGivenName('Mathieu');
+        $a->addSn('Hetru');
+        $em = $this->get('ldap_object.manager');
+        $em->persist($a);
         $em->flush();
         ...
     }

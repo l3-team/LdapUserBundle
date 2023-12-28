@@ -15,12 +15,12 @@
         }
     ],
     "require": {
-        "php": ">=8.0.2",
-        "symfony/http-foundation": "~6.0",
-        "symfony/security-bundle": "~6.0",
-        "symfony/routing": "~6.0",
-        "symfony/framework-bundle": "~6.0",
-        "openldapobject/ldapobjectbundle": "1.1.4"
+        "php": ">=8.2",
+        "symfony/http-foundation": "~7.0",
+        "symfony/security-bundle": "~7.0",
+        "symfony/routing": "~7.0",
+        "symfony/framework-bundle": "~7.0",
+        "openldapobject/ldapobjectbundle": "1.1.5"
     },
     "autoload": {
         "psr-4": { "L3\\Bundle\\LdapUserBundle\\": "" }
