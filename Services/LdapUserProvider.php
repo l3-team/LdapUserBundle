@@ -44,7 +44,7 @@ class LdapUserProvider implements UserProviderInterface {
         return $user;
     }
 
-    public function refreshUser(UserInterface $user) {
+    public function refreshUser(UserInterface $user): UserInterface {
         if(!$user instanceof LdapUser) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }
@@ -52,7 +52,7 @@ class LdapUserProvider implements UserProviderInterface {
         return $this->loadUserByIdentifier($user->getUid());
     }
 
-    public function supportsClass($class) {
+    public function supportsClass($class): bool {
         return LdapUser::class === $class;
     }
 } 
